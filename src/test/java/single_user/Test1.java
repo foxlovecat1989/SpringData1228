@@ -11,6 +11,16 @@ public class Test1 {
     public void t1(){
         ClassPathXmlApplicationContext ctx = 
                 new ClassPathXmlApplicationContext("springMVC-servlet.xml");
-    
+                
+        // UserRepository ur = ctx.getBean("userRepository", UserRepository.class);
+        UserRepository ur = ctx.getBean(UserRepository.class); // 唯一因此可省略
+        
+        User user = new User();
+        user.setName("Vincent");
+        user.setEmail("vin@gmail.com");
+        user.setBirth(new Date());
+        
+        // ur.saveAndFlush(user); // 及時儲存
+        ur.save(user); // 方法結束(commit)後才儲存
    } 
 }
