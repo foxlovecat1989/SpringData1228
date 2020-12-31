@@ -15,6 +15,8 @@ public class Test5 {
         UserRepository userRepository = ctx.getBean(UserRepository.class);
         List<User> users = 
                 userRepository.getByNameStartingWithAndIdLessThan("S", 100L);
+        
+        users = userRepository.getByNameStartingWithAndIdGreaterThanEqual("S", 100L);
         System.out.println(users);
     }
 }
