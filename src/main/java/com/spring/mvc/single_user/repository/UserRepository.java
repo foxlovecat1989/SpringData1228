@@ -1,6 +1,7 @@
 package com.spring.mvc.single_user.repository;
 
 import com.spring.mvc.single_user.entities.User;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,11 @@ import org.springframework.stereotype.Repository;
 */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
+    
+    // 根據 name來取得
     User getByName(String name); 
+    
+    // WHERE name LIKE ?% AND id < ?
+    // WHERE name LIKE 'S%' AND id < 100
+    List<User> getByNameStartingWithAndIdLessThan(String name, Long id);
 }
