@@ -15,7 +15,7 @@ import org.springframework.data.domain.Sort.Order;
 public class Test10 {
     
     @Test
-    public void t9(){
+    public void t10(){
         ClassPathXmlApplicationContext ctx = 
                 new ClassPathXmlApplicationContext("springMVC-servlet.xml");
         UserViewRepository userViewRepository = ctx.getBean(UserViewRepository.class);
